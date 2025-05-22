@@ -1,0 +1,38 @@
+<table>
+    <tr>
+        <th>Patient Name</th>
+        <th>Booking Date</th>
+        <th>Actions</th>
+    </tr>
+    <!-- Example Booking -->
+    <tr>
+        <td>John Doe</td>
+        <td>2025-04-15</td>
+        <td>
+            <button onclick="openPrescriptionForm('1')">Add Prescription</button>
+        </td>
+    </tr>
+</table>
+
+<!-- Prescription Form (Hidden by Default) -->
+<div id="prescription-form" style="display: none; margin-top: 20px;">
+    <h3>Add Prescription</h3>
+    <form action="save_prescription.html" method="post">
+        <input type="hidden" id="booking-id" name="booking_id" value="">
+        <label for="prescription">Prescription:</label><br>
+        <textarea id="prescription" name="prescription" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Save Prescription</button>
+        <button type="button" onclick="closePrescriptionForm()">Cancel</button>
+    </form>
+</div>
+
+<script>
+    function openPrescriptionForm(bookingId) {
+        document.getElementById('prescription-form').style.display = 'block';
+        document.getElementById('booking-id').value = bookingId; // Set the booking ID
+    }
+
+    function closePrescriptionForm() {
+        document.getElementById('prescription-form').style.display = 'none';
+    }
+</script>
